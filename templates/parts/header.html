@@ -1,0 +1,28 @@
+
+<header>
+    <section id="header-wrapper">
+       <div class="header-logo" >
+        <a href="/">
+            <img src="{{url_for('static' , filename = 'cover/cover.png')}}" alt="story">
+        </a>
+       </div>
+        <div id="header-search">
+            <form action="/" method="get">
+                <input type="search" name="search" value="{{ search if search !=None }}" placeholder=" &#x1F50E;جست و جو">      
+            </form>
+        </div>
+             <div class="header-links">
+                <a class="header-link" href="/list_idea" >نمونه لیست ها</a>
+                <a class="header-link"  href="/about">درباره ی ما</a>
+                {%if current_user.is_authenticated %}
+                <a class="header-link" href="/user/dashboard" >پنل کاربری</a>
+                {% else %}
+                
+                <a class="header-link" href="/user/login">ورود/ثبت نام </a>
+                {% endif %}
+              </div>
+        
+
+    </section>
+
+</header>
