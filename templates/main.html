@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+    <title>کار های روزانه</title>
+{% endblock %}
+
+
+
+
+{% block body %}
+
+{% include 'parts/header.html'%}
+
+    <section class="simple-box">
+        <h1>کارهای روزانه ات را تیک بزن</h1>
+        <p>این سایت مخصوص برنامه ریزی های روزانه است با هزاراتن هزار شرکت کننده که لیست کارهای روزانه ی خود را میگذارند</p>
+        <span class="login-big-btn"><a href="/user/login">حساب کاربری نداری؟ چرا ثبت نام نمیکنی؟</a></span>
+    </section>
+
+<section class="slider">
+        <span style="right: 5px;" onclick="change(true)">&#x2771;</span>
+        <span style="left: 5px;" onclick="change(false)">&#x2770;</span>
+        <img src="{{url_for('static', filename = 'images/01.jpg')}}">
+</section>
+
+<section class="simple-box"> 
+    <h2>سوالات متداول</h2>
+        <section class="question-box" onclick="showAnswer(this)">
+            <h4>این سایت چه کمکی به من میکند؟</h4>
+            <p>با نوشتن برنامه ی روزانه و تیک زدن آنها میتوانی روتین مناسب خودتو پیدا کنی و با خیال راحت به کارات برسی</p>
+        </section>
+        <section class="question-box" onclick="showAnswer(this)">
+            <h4>چرا باید این سایتو انتخاب کنم؟</h4>
+            <p>با وجود عده ی زیادی از کاربران که از برنامه های خودشون عکس میإارن و حالت رقابتی ایجاد میکنند، تمایل به نوشتن و انجام کار های روزانه ات بیشتر و بهتر میشه. پس این سایت کزینه ی مناسبی میتونه برات باشه اگر نیار به انگیزه داری </p>
+        </section>
+        <section class="question-box" onclick="showAnswer(this)">
+            <h4>میتونیم برناممونو با دوستامون به اشتراک بذاریم؟ </h4>
+            <p>صد البته! سابت ما این امکان رو به شما میده که برنامه هاتونو با دوستا و حتی کاربرای دیگه به اشتراک بذارین و باهم دیگه پیش برین</p>
+        </section>
+        <section class="question-box" onclick="showAnswer(this)">
+            <h4>آیا نوشتن برنامه های هزینه داره؟</h4>
+            <p>خیر. به هیچ عنوان سایت رایگان و برای عموم مردمه که میخوان پیشرفت کنن</p>
+        </section>
+</section>
+
+{% include 'parts/footer.html' %}
+
+
+
+    <script>
+        let img = document.querySelector(".slider img")
+        let items = ["{{url_for('static', filename = 'images/01.jpg')}}" ,"{{url_for('static', filename = 'images/02.jpg')}}" ,"{{url_for('static', filename = 'images/03.jpg')}}" ,"{{url_for('static', filename = 'images/04.jpg')}}"]
+        let index = 0
+
+        let changeSrc = (element, url)=>{
+            element.style.opacity = 0
+            setTimeout(()=>{
+                element.src = url
+            },500)
+            element.onload = ()=>{
+                element.style.opacity = 1
+            }
+            
+        }
+
+        let change = (isNext)=>{
+            //برای دکمه ی راست
+            if(isNext){
+
+                index++
+                if(index >= items.length)
+                    index=0
+
+                changeSrc(img,items[index])
+           
+            } else{
+                // برای دکمه چپ
+                index--
+
+                if(index == -1)
+                    index = items.length - 1
+
+                changeSrc(img,items[index]);
+            
+            
+           
+            
+        }
+            clearInterval(intervalId);
+            startAutoSlide();
+            }
+            let startAutoSlide = ()=>{
+                intervalId = setInterval(()=>{
+                    change(true)
+                },3000);
+            }
+
+            startAutoSlide();
+
+        
+    </script>
+
+    <script>
+        //برای سوالات متداول بخش پایینی
+        let showAnswer =(element)=>{
+            //وقتی بخوایم باز یا بسته بشه
+            let p = element.querySelector("p")
+            if (p.style.height == "0px")
+                p.style.height = `${p.scrollHeight}px`
+            else
+                p.style.height = "0px"
+
+        }
+
+    </script>
+    
+{% endblock %}
