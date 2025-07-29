@@ -18,6 +18,6 @@ def rules():
 
 
 
-@app.route('/comments')
-def comments():
-    return render_template('comments.html')
+@app.route('/characters')
+def characters():
+    return render_template('characters.html')

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+    <title>ورود/ثبت نام</title>
+{% endblock %}
+
+
+{% block body %}
+
+{% include 'parts/header.html'%}
+
+    <section class="simple-box" style="  text-align: justify;
+    direction: rtl; 
+    padding: 15px; margin: auto; margin-top: 20px;
+    ">
+
+        <div id="user-login">
+            <h2>ورود</h2>
+            <form method="post" action="#">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <input type="text" name="user_name" placeholder="نام کاربری">
+                <input type="password" name="password" placeholder="رمز عبور">
+                <input type="text" name="phone" placeholder="مثال:09121111111">
+                <input type="submit" name="login" value="ورود">
+            </form>
+
+            <span style="cursor: pointer;" onclick="javascript:show_register()">ثبت نام نکرده اید؟</span>
+
+        </div>
+        <div id="user-register">
+        <h2>ثبت نام</h2>
+        <form action="#" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <input type="hidden" name="register" value="1">
+            <input type="text" name="user_name" placeholder="نام کاربری">
+            <input type="password" name="password" placeholder="رمز عبور">
+            <input type="number" name="phone" placeholder="شماره تلفن">
+
+            <input type="submit" name="register" value="ثبت نام">
+        </form>
+        <span style="cursor: pointer;" onclick="javascript:show_login()">قبلا ثبت نام کرده اید؟</span>
+    
+        </div>
+
+    </section>
+
+     <script>
+        const user_register = document.getElementById('user-register')
+        const user_login = document.getElementById('user-login')
+
+        const show_register = ()=>{
+            user_register.style.display = "block"
+            user_login.style.display = "none"
+        }
+
+        const show_login = ()=>{
+            user_register.style.display = "none"
+            user_login.style.display = "block"
+        }
+
+
+    </script>
+
+    {% include 'parts/footer.html' %}
+    
+{% endblock %}

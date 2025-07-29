@@ -90,3 +90,16 @@ def logout():
     logout_user()
     flash('با موفقیت خارج شدید')
     return redirect('/')
+
+
+
+@app.route('/user/story')
+@login_required
+def story():
+    return render_template("user/story.html")
+
+
+@app.route('/user/story2')
+@login_required
+def story2():
+    return render_template("user/story2.html")

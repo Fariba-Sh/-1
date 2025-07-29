@@ -1,9 +1,10 @@
 <section class="main-footer">
     <div class="right-footer">
-        <a href="/user/login"><img src="{{url_for('static' , filename = 'cover/checklist.jpg')}}" alt="daily todo list"></a>
         <div class="a-right-footer">
-            <a href="/rules">قوانین و مقررات <img src="{{url_for('static',filename ='theme_images/rules.png')}}"></a>
-            <a href="tel:091211111111">تماس با ما <img src="{{url_for('static',filename ='theme_images/call.png')}}"></a>
+            <ul>
+           <li> <a href="/rules">قوانین و مقررات <img src="{{ url_for('static',filename = 'theme_images/rules.png') }}"></a></li>
+           <li> <a href="tel:091211111111">تماس با ما <img src="{{ url_for('static',filename = 'theme_images/call.png') }}"></a></li>
+            </ul>
         </div>
     </div>
 

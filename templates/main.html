@@ -18,6 +18,12 @@
         <span class="login-big-btn"><a href="/user/login">حساب کاربری نداری؟ چرا ثبت نام نمیکنی؟</a></span>
     </section>
 
+{% if current_user.is_authenticated %}
+
+    <section class="simple-box" style="width: 200px;">
+        <span class="login-big-btn" style="width: 100px;"><a href="{{ url_for('user.story') }}">داستان</a></span>
+    </section>
+{% endif %}
 <section class="slider">
         <span style="right: 5px;" onclick="change(true)">&#x2771;</span>
         <span style="left: 5px;" onclick="change(false)">&#x2770;</span>
@@ -35,7 +41,7 @@
             <p>چون از حق نگذریم خوب مینویسیم</p>
         </section>
         <section class="question-box" onclick="showAnswer(this)">
-            <h4>میتونی مخودمون هم توی نوشتن داستان نقشی داشته باشیم؟ </h4>
+            <h4>میتونیم خودمون هم توی نوشتن داستان نقشی داشته باشیم؟ </h4>
             <p>صد البته!البته هنوز این بخشو نساختم بعدا تو اپدیتای بعدی شاید</p>
         </section>
         <section class="question-box" onclick="showAnswer(this)">

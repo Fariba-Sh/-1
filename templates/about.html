@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+    <title>درباره ی ما</title>
+{% endblock %}
+
+
+{% block body %}
+
+{% include 'parts/header.html'%}
+
+    <section class="simple-box" style="  text-align: justify;
+    direction: rtl; 
+    padding: 15px; margin: auto; margin-top: 20px;
+    ">
+        <h1>دو سم گشاد</h1>
+        <p>داستان از این قراره که من(فریبا) و آتنا کلی داستان تو ذهنمون داریم ولی گشادیمون میاد که ادامشون بدیم یا حتی شروع کنیم. این سایتو زدم تا یکم انگیزه بگیریم برای ادامه دادن</p>
+    </section>
+
+    {% include 'parts/footer.html' %}
+    
+{% endblock %}
