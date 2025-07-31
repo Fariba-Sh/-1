@@ -14,6 +14,9 @@
             <img src="{{url_for('static' , filename = 'cover/cover.png')}}" alt="story">
         </a>
        </div>
+        <div id="header-menu">
+                <span id="header-menu-close-btn" onclick="javascript:change_header_menu(false)">X</span>
+
              <div class="header-links">
                 <a class="header-link" href="/characters" > شخصیت ها</a>
                 <a class="header-link"  href="/about">درباره ی ما</a>
@@ -24,8 +27,8 @@
                 <a class="header-link" href="/user/login">ورود/ثبت نام </a>
                 {% endif %}
               </div>
-        
-
+        </div>
+              <img onclick="javascript:change_header_menu(true)" src="{{url_for('static', filename = 'theme_images/menu.png')}}" id="header-menu-btn">
     </section>
 
 </header>

@@ -24,6 +24,18 @@
     {% endblock %}
 
 
+    <script>
+         const header_menu = document.getElementById('header-menu');
+        const change_header_menu =(show)=>{
+            if (show){
+                header_menu.style.height = header_menu.scrollHeight + "px"
+            }else{
+                header_menu.style.height = "0"
+            }
+        }
+    </script>
+
+
     <!-- پیام فلش برای چند لحظه -->
     <script type="module">
          import { Eggy } from '{{url_for('static', filename = 'js/eggy.js')}}';
